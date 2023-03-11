@@ -1,5 +1,5 @@
 <template>
-  <BoardGame msg="Welcome to Your Vue.js App"/>
+  <BoardGame/>
 </template>
 
 <script>
@@ -34,6 +34,12 @@ export default {
 }
 
 .X {
-  color: black
+  color: white;
+}
+
+#goFirst {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 24px;
 }
 </style>
