@@ -1,17 +1,23 @@
 <template>
     <div>
         <span id="goFirst"></span>
-        <div class="board">
-            <div class="cell" id="one" @mousedown="addShape($event)" @mouseup="checkIfWin"></div>
-            <div class="cell" id="two" @mousedown="addShape($event)" @mouseup="checkIfWin"></div>
-            <div class="cell" id="three" @mousedown="addShape($event)" @mouseup="checkIfWin"></div>
-            <div class="cell" id="four" @mousedown="addShape($event)" @mouseup="checkIfWin"></div>
-            <div class="cell" id="five" @mousedown="addShape($event)" @mouseup="checkIfWin"></div>
-            <div class="cell" id="six" @mousedown="addShape($event)" @mouseup="checkIfWin"></div>
-            <div class="cell" id="seven" @mousedown="addShape($event)" @mouseup="checkIfWin"></div>
-            <div class="cell" id="eight" @mousedown="addShape($event)" @mouseup="checkIfWin"></div>
-            <div class="cell" id="nine" @mousedown="addShape($event)" @mouseup="checkIfWin"></div>
-        </div>
+        <table>
+            <tr>
+                <td id="one" @mousedown="addShape($event)" @mouseup="checkIfWin"></td>
+                <td class="vert" id="two" @mousedown="addShape($event)" @mouseup="checkIfWin"></td>
+                <td id="three" @mousedown="addShape($event)" @mouseup="checkIfWin"></td>
+            </tr>
+            <tr>
+                <td class="hori" id="four" @mousedown="addShape($event)" @mouseup="checkIfWin"></td>
+                <td class="vert hori" id="five" @mousedown="addShape($event)" @mouseup="checkIfWin"></td>
+                <td class="hori" id="six" @mousedown="addShape($event)" @mouseup="checkIfWin"></td>
+            </tr>
+            <tr>
+                <td id="seven" @mousedown="addShape($event)" @mouseup="checkIfWin"></td>
+                <td class="vert" id="eight" @mousedown="addShape($event)" @mouseup="checkIfWin"></td>
+                <td id="nine" @mousedown="addShape($event)" @mouseup="checkIfWin"></td>
+            </tr>
+        </table>
     </div>
 </template>
 
@@ -174,26 +180,25 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.board {
-  padding-top: 5px;
-  aspect-ratio: 1 / 1;
-  width: 45%;
-  height: 45%;
-  
-  display: flex;                       /* establish flex container */
-  flex-wrap: wrap;                     /* enable flex items to wrap */
-  justify-content: space-around;
-  border: 3px solid;
-  margin-left: auto;
-  margin-right: auto;
-}
-.cell {
-  flex: 0 0 32%;                       /* don't grow, don't shrink, width */
-  margin-bottom: 5px;
-  background-color: #999;
+td {
+  width: 100px;
+  height: 100px;
 }
 
-.cell:hover {
-  opacity: 0.5;
+td:hover {
+  background: rgb(224, 224, 224);  
+  cursor: pointer;
+}
+
+table {
+  margin: 15px auto;
+}
+.vert {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+.hori {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 </style>

@@ -23,10 +23,9 @@ export default {
 }
 
 .X, .O {
-  height: 0.1px;
-  width: 0.1px;
-  font-size: 5vmax;
+  font-size: 50px;
   margin: 0;
+  
 }
 
 .O {
@@ -34,12 +33,12 @@ export default {
 }
 
 .X {
-  color: white;
+  color: black;
 }
 
 #goFirst {
   font-style: italic;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 28px;
 }
 </style>
