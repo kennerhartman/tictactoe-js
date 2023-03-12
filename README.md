@@ -9,8 +9,7 @@ git clone https://github.com/kennerhartman/tictactoe-js.git
 
 ### Project setup
 ```
-npm install
-npm install vue@latest
+vue create {project name}
 ```
 
 ```
