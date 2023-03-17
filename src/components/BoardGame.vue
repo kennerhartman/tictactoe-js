@@ -1,6 +1,9 @@
 <template>
     <div>
-        <span id="goFirst"></span>
+        <div class="title">
+            <span id="goFirstSpan" style="display: inline-block;"></span>
+            <button style="display: ; margin-left: 25px;" @click="restartGame">Restart</button>
+        </div>
         <table>
             <tr>
                 <td id="one" @mousedown="addShape($event)" @mouseup="checkIfWin"></td>
@@ -34,11 +37,13 @@
         if(shape === 1) {
             const goFirst = document.createElement('p')
             goFirst.textContent = "X is first!"
-            document.getElementById('goFirst').appendChild(goFirst);
+            goFirst.id = "paragraph"
+            document.getElementById('goFirstSpan').appendChild(goFirst)
         } else {
             const goFirst = document.createElement('p')
             goFirst.textContent = "O is first!"
-            document.getElementById('goFirst').appendChild(goFirst);
+            goFirst.id = "paragraph"
+            document.getElementById('goFirstSpan').appendChild(goFirst)
         }
     }
 
@@ -76,12 +81,12 @@
                 if(!event.target.hasChildNodes()) {   // if the target element does not have a child element
                     if(shape === 0) {
                         document.body.appendChild(pO)
-                        document.getElementById(elementID).appendChild(pO);
+                        document.getElementById(elementID).appendChild(pO)
                         shape++
                         this.numbers[elementID] = "O"
                     } else if(shape === 1) {
                         document.body.appendChild(pX)
-                        document.getElementById(elementID).appendChild(pX);
+                        document.getElementById(elementID).appendChild(pX)
                         shape--
                         this.numbers[elementID] = "X"
                     }
@@ -90,7 +95,7 @@
             checkIfWin() {
                 // variables for accessing DOM
 
-                const goFirst = document.querySelector('#goFirst')
+                const goFirst = document.querySelector('#goFirstSpan')
                 goFirst.textContent = ""
 
                 // logic for checking if a win occured according to traditional tic-tac-toe rules
@@ -173,7 +178,52 @@
                     shape = -1
                     goFirst.textContent = "O won!"
                 }
-            }
+            },
+            restartGame() {
+                shape = 0 // because in the method, 'checkIfWin,' we set shape to -1, the game cannot start unless it is set to 0 or 1 
+
+                // clears the winning text set in the method 'checkIfWin'
+                
+                document.getElementById('goFirstSpan').innerHTML = ""
+
+                // first thing we need to do to reset the game by clearing the 'numbers' object; achieved by an array and for loop
+
+                const arrayOfID = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+
+                for(var i = 0; i < arrayOfID.length; i++) {
+                    // looping through the 'numbres' object and finding values to set to an empty string by the 'arrayOfId' array
+                    this.numbers[arrayOfID[i]] = ""    
+                }
+
+                // next, we need to clear all <p> elements from the DOM with a class of 'O' and 'X'
+                
+                const elementO = document.getElementsByClassName('O')   // controls all O's
+                const elementX = document.getElementsByClassName('X')   // controls all X's
+
+                while(elementO.length > 0){
+                    elementO[0].parentNode.removeChild(elementO[0])    // removes all O's
+                }
+
+                while(elementX.length > 0){
+                    elementX[0].parentNode.removeChild(elementX[0])    // removes all X's
+                }
+            
+                if(Math.round(Math.random()) === 1) {   // redetermines if X or O goes first
+                    shape = 1
+                }
+
+                // creates a new element to append to the DOM to tell who is going first
+
+                const goFirst = document.createElement('p')
+                goFirst.id = "paragraph"
+                document.getElementById('goFirstSpan').appendChild(goFirst)
+
+                if(shape === 1) {
+                    document.getElementById('paragraph').innerHTML = "X is first!"
+                } else {
+                    document.getElementById('paragraph').innerHTML = "O is first!"
+                }
+            },
         },
     }
 </script>

@@ -36,7 +36,7 @@ export default {
   color: black;
 }
 
-#goFirst {
+#goFirstSpan {
   font-style: italic;
   font-weight: 700;
   font-size: 28px;
