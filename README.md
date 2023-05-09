@@ -25,3 +25,7 @@ npm run serve
 ```
 npm run build
 ```
+
+### License
+
+This program uses a MIT License.  See LICENSE.md for more information.
