@@ -28,4 +28,4 @@ npm run build
 
 ### License
 
-This program uses a MIT License.  See LICENSE.md for more information.
+This program uses a MIT License.  See [LICENSE.md](https://github.com/kennerhartman/tictactoe-js/blob/master/LICENSE.md) for more information.
