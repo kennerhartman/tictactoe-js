@@ -1,3 +1,5 @@
+<img src="https://img.shields.io/badge/project%20status-shelved-red"></img>
+
 # JavaScript TicTacToe Using VueJS 3
 
 While I could have used vanilla JS to make this simple game, I thought it would be fun to figure out how to make tic-tac-toe using VueJS.
